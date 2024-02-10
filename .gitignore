@@ -1,0 +1,4 @@
+raylib-5.0/
+build/
+zig-cache/
+zig-out/

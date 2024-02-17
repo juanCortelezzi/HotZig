@@ -1,6 +1,7 @@
 const std = @import("std");
 const utils = @import("utils.zig");
 const plug = @import("../plug/plug.zig");
+const print = std.debug.print;
 const c = @cImport({
     @cInclude("raylib.h");
 });
@@ -23,14 +24,12 @@ pub fn main() !void {
     c.SetTargetFPS(60);
 
     var dynlib = try utils.loadLibrary(Gamelib, "./zig-out/lib/libplug.so");
-
-    std.debug.print("dynlib: '{}'\n", .{dynlib});
-
     var game_state: *GameState = undefined;
     dynlib.symbols.init(game_state);
 
     while (!c.WindowShouldClose()) {
         if (c.IsKeyDown(c.KEY_R)) {
+            print("Reloading library\n");
             dynlib.deinit();
             dynlib = try utils.loadLibrary(Gamelib, "./zig-out/lib/libplug.so");
         }

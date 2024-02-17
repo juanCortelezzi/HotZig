@@ -9,7 +9,7 @@ pub fn addRaylib(b: *std.Build, target: std.zig.CrossTarget, optimize: std.built
         "-DGL_SILENCE_DEPRECATION=199309L",
     };
 
-    const raylib = b.addStaticLibrary(.{
+    const raylib = b.addSharedLibrary(.{
         .name = "raylib",
         .target = target,
         .optimize = optimize,

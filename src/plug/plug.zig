@@ -87,7 +87,7 @@ export fn update(gameState: *GameState) void {
     // var buffer: [32]u8 = undefined;
     // var msg: [:0]u8 = undefined;
 
-    c.DrawText("asdfaskdjfal", 10, 10, 20, c.DARKGRAY);
+    c.DrawText("dino", 10, 10, 20, c.DARKGRAY);
     offset += 20;
 
     // msg = std.fmt.bufPrintZ(&buffer, comptime "isJumping: {}", .{player.jumping}) catch unreachable;
